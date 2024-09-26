@@ -36,7 +36,12 @@ export default class AuthenticatingConcept {
     // TODO 1: implement this operation
     //  - use this.users.readOne(..)
     //  - don't include the password (we've provided a helper function you can use!)
-    throw new Error("Not implemented!");
+    const idQuery = {"_id": _id};
+    const user = this.users.readOne({idQuery})
+    if (!user) {
+      throw new Error("Not implemented!");
+    }
+    return user
   }
 
   async getUsers(username?: string) {
